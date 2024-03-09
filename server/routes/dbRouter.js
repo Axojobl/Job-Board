@@ -1,44 +1,70 @@
 const express = require('express');
 
 const jobController = require('../controllers/jobController');
+const categoryController = require('../controllers/categoryController');
 
 const dbRouter = express.Router();
 
-// get one job
-dbRouter.get('/job/:id', jobController.getOneJob, (req, res) => {
-  const { getOneJob } = res.locals
-  res.status(200).send(getOneJob)
-})
+// job routes
 
-// get all jobs
-dbRouter.get('/job', jobController.getAllJobs, (req, res) => {
-    const { getAllJobs } = res.locals;
-    res.status(200).send(getAllJobs);
-})
+    // get one job
+    dbRouter.get('/job/:id', jobController.getOneJob, (req, res) => {
+      const { getOneJob } = res.locals
+      res.status(200).send(getOneJob)
+    })
 
-// post new job
-dbRouter.post('/job', jobController.createJob, (req, res) => {
+    // get all jobs
+    dbRouter.get('/job', jobController.getAllJobs, (req, res) => {
+        const { getAllJobs } = res.locals;
+        res.status(200).send(getAllJobs);
+    })
+
+    // post new job
+    dbRouter.post('/job', jobController.createJob, (req, res) => {
+        
+        res.status(200).send('Job Succesfully Created')
+    })
+
+    // patch job
+    dbRouter.patch('/job/:id', jobController.updateJob, (req, res) => {
+      res.status(200).send('Job Succesfully Updated')
+    })
+
+    // delete job
+    dbRouter.delete('/job/:id', jobController.deleteJob, (req, res) => {
+      res.status(200).send('Job Succesfully Deleted')
+    })
+
+  
+// category routes
+
+    // get one category
+    dbRouter.get('/category/:id', categoryController.getOneCategory, (req, res) => {
+      const { getOneCategory } = res.locals;
+      res.status(200).send(getOneCategory);
+
+    })
+
+    // get all categories
+    dbRouter.get('/category', categoryController.getAllCategory, (req, res) => {
+      const { getAllCategory } = res.locals;
+      res.status(200).send(getAllCategory)
+    })
+
+    // create category
+    dbRouter.post('/category', categoryController.createCategory, (req, res) => {
+      res.status(200).send('Category Succesfully Created');
+    })
     
-    res.status(200).send('Succesfully Created')
-})
+    // update category
+    dbRouter.patch('/category/:id',categoryController.updateCategory, (req, res) => {
+      res.status(200).send('Category Succesfully Updated');
+    })
 
-// patch job
-dbRouter.patch('/job/:id', jobController.updateJob, (req, res) => {
-  res.status(200).send('Succesfully Updated')
-})
+    // delete category
+    dbRouter.delete('/category/:id',categoryController.deleteCategory, (req, res) => {
+      res.status(200).send('Category Succesfully Deleted');
+    })
 
-// delete job
-dbRouter.delete('/job/:id', jobController.deleteJob, (req, res) => {
-  res.status(200).send('Succesfully Deleted')
-})
-
-
-
-// category routes?
-// category get route
-// category get all route
-// category post route
-// category patch route
-// category delete route
 
 module.exports = dbRouter

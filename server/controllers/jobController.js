@@ -76,7 +76,6 @@ jobController.createJob = (req, res, next) => {
 
   db.query(query, params)
     .then((result) => {
-      res.locals.createdJob = result.rows;
       return next();
     })
     .catch((err) => {

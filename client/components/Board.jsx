@@ -10,11 +10,15 @@ const Board = () => {
     <div>
       <h2>AxolBoard</h2>
       <div className="input-container">
-        <div className="left-content">Left Content Here</div>
+        <div className="left-content"></div>
         <div className="right-content">
-          <right>
+          <form onSubmit='#'>
+          <input
+            placeholder="Enter Category Name"
+            type="text"
+          />
           <button>Add Category</button>
-          </right>
+          </form>
         </div>
       </div>
       <div className="board-container">

@@ -4,79 +4,96 @@
 $primary-color: rgb(140, 17, 145);
 $secondary-color: #efc3c3;
 $third-color: rgb(19, 51, 158);
-$font-stack: "Roboto", sans-serif;
+$font-stack: 'Roboto', sans-serif;
 $background-color: rgb(171, 206, 203);
 
-// H1 is being weird THIS IS NOT applyin 
+// H1 is being weird THIS IS NOT applyin
 
 body {
-    // font: $font-stack;
-    background-color: $background-color;
-    margin: 0;
-    padding: 0;
+  // font: $font-stack;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+  color: $primary-color;
+  font-family: $font-stack;
+  box-sizing: border-box;
+
+  .head-title {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  .app-container {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100vw;
+  }
+
+  .board-container {
+    display: grid;
+    // grid-template-columns: repeat(5, 1fr); commented out to use @media dynamic
+    gap: 15px;
+    height: 50vh;
+    padding: 20px;
     color: $primary-color;
-    font-family: $font-stack;
-    box-sizing: border-box;
 
-    .head-title {
-        font-size: 50px;
+    // Default grid setup for small screens
+    grid-template-columns: repeat(
+      2,
+      1fr
+    );
+
+    @media (min-width: 769px) {
+      grid-template-columns: repeat(3, 1fr); // Switches to 3 columns
     }
 
-    h2 {
-        font-size: 40px;
+    @media (min-width: 1025px) {
+      grid-template-columns: repeat(4, 1fr); // Switches to 4 columns
     }
 
-    .app-container {
-
-
-        padding: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 80vh;
-        width: 100vw;
+    @media (min-width: 1201px) {
+      grid-template-columns: repeat(5, 1fr); // Finally uses 5 columns
     }
+  }
 
+  .category {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: $third-color;
+    grid-template-rows: reapeat(3, 1fr);
+    box-shadow: 10px 10px 5px 0px lighten($third-color, 40%);
 
-    .board-container {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 15px;
-        height: 50vh;
-        padding: 20px;
-        color: $primary-color;
-
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-        }
-
-        .input-container {
-            display: flex;
-            flex-direction: column;
-
-            .left-content {}
-
-            .right-content button {
-                justify-self: flex-end;
-            }
-        }
+    .card {
+      border: 1px solid;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 10px;
+      background-color: $secondary-color;
     }
+  }
+}
 
-    .category {
-        border-radius: 10px;
-        padding: 10px;
-        background-color: $third-color;
-        grid-template-rows: reapeat(3, 1fr);
-        box-shadow: 10px 10px 5px 0px lighten($third-color, 40%);
+.input-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 
+  .left-content {
+  }
 
+  .right-content {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
-        .card {
-            border: 1px solid;
-            border-radius: 10px;
-            margin: 10px;
-            padding: 10px;
-            background-color: $secondary-color;
-        }
+    button {
     }
+  }
 }

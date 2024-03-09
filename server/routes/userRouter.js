@@ -9,7 +9,6 @@ userRouter.get('/login', (req, res) =>{
 
 });
 
-
 userRouter.post('/login',userController.verifyUser, (req,res) => {
   // post request for logging in 
 });
@@ -18,7 +17,6 @@ userRouter.get('/register', (req, res) =>{
   // load structure of register page
 
 });
-
 
 userRouter.post('/register',userController.createUser, (req,res) => {
   // post request for registering 

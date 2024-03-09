@@ -46,7 +46,7 @@ const boardReducer = (state = initialState, action) => {
       ...state,
       board: categories,
     }
-    
+    break;
     case types.UPDATE_CATEGORY:
     
     //SQL query to add a category and then return the updated list of cateogries
@@ -57,7 +57,6 @@ const boardReducer = (state = initialState, action) => {
       ...state,
       board: categories,
     }
-  
-  
+    break;  
   }
 }

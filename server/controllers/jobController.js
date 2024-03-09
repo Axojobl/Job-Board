@@ -3,11 +3,24 @@ const db = require('../models/jobModels');
 const jobController = {};
 
 jobController.getOneJob = (req, res, next) => {
-
+  const { id } = req.params;
+    const query = `
+        SELECT *
+        FROM listings
+        WHERE id = ${id}
+        `
 };
 
-jobController.getAllJobs = (req, res, next) => {
+// 
+// array of objects
+// each object will have category and array of job listings 
 
+jobController.getAllJobs = (req, res, next) => {
+  const query = `
+    SELECT *
+    FROM listings
+    INNER JOIN 
+  `
 };
 
 jobController.createJob = (req,res,next) => {

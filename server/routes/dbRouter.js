@@ -1,13 +1,12 @@
 const express = require('express');
 
-const dbController = require('../controllers/dbController');
 const jobController = require('../controllers/jobController');
 
 const dbRouter = express.Router();
 
 // get one job
 dbRouter.get('/job/:id', jobController.getOneJob, (req, res) => {
-    
+
 })
 
 // get all jobs

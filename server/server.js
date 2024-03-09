@@ -6,8 +6,6 @@ const PORT = 3000;
 
 // import Routers
 const userRouter = require('./routes/userRouter');
-const jobRouter = require('./routes/jobRouter');
-const categoryRouter = require('./routes/categoryRouter');
 const dbRouter = require('./routes/dbRouter');
 
 
@@ -22,10 +20,10 @@ app.use(express.static(path.resolve(__dirname,'../client')))
 // just loads HTML CSS JS
 
 
-// user router (login/register)
+// // user router (login/register)
 app.use('/user', userRouter);
 
-// database router
+// // database router
 app.use('/api',dbRouter);
 
 

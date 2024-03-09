@@ -2,17 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import Category from './Category.jsx'
-import addCategoryActionsCreator from '../'
+import Category from './Category.jsx';
+import addCategoryActionsCreator from '../';
 
 const Board = () => {
-
   return (
-    <div>
+    <div className="board-container">
       <button onClick={addCategoryActionsCreator}>Add Category</button>
-      {categories}
+      <Category />
     </div>
-  )
-}
+  );
+};
 
 export default Board;

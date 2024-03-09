@@ -13,5 +13,5 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-    listing: [],
-}
+  listing: [],
+};

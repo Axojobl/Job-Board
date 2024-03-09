@@ -15,7 +15,7 @@ import './styles.scss';
 
 const App = () => {
   return (
-    <div>
+    <div className="app-container">
       <Board />
     </div>
   );

@@ -3,12 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 const Card = () => {
-
-  return (
-    <div>
-    
-    </div>
-  )
-}
+  return <div class="card">Job Data Here</div>;
+};
 
 export default Card;

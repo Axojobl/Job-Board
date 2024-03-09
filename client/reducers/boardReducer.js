@@ -10,6 +10,7 @@
  */
 
 import * as types from '../constants/actionTypes';
+import reducers from '.';
 
 // ADD SQL QUERIES TO GET INITIAL STATE HERE
 
@@ -48,5 +49,11 @@ const boardReducer = (state = initialState, action) => {
         board: categories,
       };
       break;
+
+    default: {
+      return state;
+    }
   }
 };
+
+export default boardReducer;

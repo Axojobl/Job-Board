@@ -1,25 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 // Variables
-$primary-color: rgb(56, 31, 31);
-$secondary-color: rgb(128, 3, 128);
+$primary-color: rgb(140, 17, 145);
+$secondary-color: #efc3c3;
+$third-color: rgb(19, 51, 158);
 $font-stack: "Roboto", sans-serif;
+$background-color: rgb(171, 206, 203);
 
+// H1 is being weird THIS IS NOT applyin 
 
-* {
+body {
     // font: $font-stack;
+    background-color: $background-color;
     margin: 0;
     padding: 0;
     color: $primary-color;
     font-family: $font-stack;
     box-sizing: border-box;
 
+    .head-title {
+        font-size: 50px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
     .app-container {
-        padding: 20px;
+
+
+        padding: 15px;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 80vh;
         width: 100vw;
     }
 
@@ -27,7 +41,8 @@ $font-stack: "Roboto", sans-serif;
     .board-container {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
+        gap: 15px;
+        height: 50vh;
         padding: 20px;
         color: $primary-color;
 
@@ -35,14 +50,33 @@ $font-stack: "Roboto", sans-serif;
             grid-template-columns: 1fr;
         }
 
+        .input-container {
+            display: flex;
+            flex-direction: column;
+
+            .left-content {}
+
+            .right-content button {
+            
+            }
+        }
     }
 
     .category {
-        background-color: $secondary-color;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: $third-color;
         grid-template-rows: reapeat(3, 1fr);
+        box-shadow: 10px 10px 5px 0px lighten($third-color, 40%);
+
+
 
         .card {
-            background-color: $primary-color;
+            border: 1px solid;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+            background-color: $secondary-color;
         }
     }
 }

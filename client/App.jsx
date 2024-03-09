@@ -10,13 +10,17 @@
  */
 
 import React from 'react';
-import Board from './containers/Board.jsx';
-import './styles.scss';
+import Board from '../client/components/Board.jsx';
 
 const App = () => {
   return (
-    <div className="app-container">
-      <Board />
+    <div>
+      <header>
+        <h1 className='head-title'>Axoljobl - Job Tracker For ECRI 46</h1>
+      </header>
+      <div className="app-container">
+        <Board />
+      </div>
     </div>
   );
 };

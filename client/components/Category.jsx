@@ -4,13 +4,20 @@ import { useDispatch } from 'react-redux';
 import { addCardActionCreator } from '../actions/actions.js';
 
 import Card from './Card.jsx';
+
 const Category = () => {
   return (
     <div class="category">
-      <button id="addJob" onClick={addCardActionCreator}>
-        Add Job
-      </button>
-      <Card />
+      <div className='category-button'>
+        <button id="addJob" onClick={addCardActionCreator}>
+          Add Job
+        </button>
+      </div>
+      <div>
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   );
 };

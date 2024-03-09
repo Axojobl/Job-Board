@@ -30,17 +30,17 @@ export const updateCardActionCreator = (cardId) => ({
   payload: { cardId },
 });
 
-export const addCategoryActionsCreator = (categoryId) => ({
+export const addCategoryActionCreator = (categoryId) => ({
   type: types.ADD_CATEGORY,
   payload: { catagoryId },
 });
 
-export const deleteCategoryActionsCreator = (categoryId) => ({
+export const deleteCategoryActionCreator = (categoryId) => ({
   type: types.DELETE_CATEGORY,
   payload: { catagoryId },
 });
 
-export const updateCategoryActionsCreator = (categoryId) => ({
+export const updateCategoryActionCreator = (categoryId) => ({
   type: types.UPDATE_CATEGORY,
   payload: { catagoryId },
 });

@@ -19,7 +19,7 @@ import './styles.scss';
 // TODO: MongoDB to Authenticate Users
 // TODO: MongoDB for User Sign up
 // TODO: Store Redux State into persistent states MongoDB Session -- along with cookies - for card order persistence
-// TODO: Look into DNDKit for Drag and Drop options
+// TODO: Look into DNDKit for Drag and Drop options: https://docs.dndkit.com/
 
 const root = createRoot(document.getElementById('contents'));
 root.render(

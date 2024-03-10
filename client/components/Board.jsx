@@ -9,7 +9,7 @@ const Board = () => {
   return (
     <div>
       <h2>AxolBoard</h2>
-      <div className="input-container">
+      <div className="category-input-container">
         <div className="left-content"></div>
         <div className="right-content">
           <form onSubmit='#'>

@@ -16,6 +16,11 @@ import App from './App.jsx';
 import store from './store';
 import './styles.scss';
 
+// TODO: MongoDB to Authenticate Users
+// TODO: MongoDB for User Sign up
+// TODO: Store Redux State into persistent states MongoDB Session -- along with cookies - for card order persistence
+// TODO: Look into DNDKit for Drag and Drop options
+
 const root = createRoot(document.getElementById('contents'));
 root.render(
   // wrap the App in the Provider Component and pass in the store

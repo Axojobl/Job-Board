@@ -5,13 +5,16 @@ import { addCardActionCreator } from '../actions/actions.js';
 
 import Card from './Card.jsx';
 
-const Category = () => {
+const Category = ({ name }) => {
   return (
-    <div class="category">
+    <div className="category">
       <div className='category-button'>
         <button id="addJob" onClick={addCardActionCreator}>
           Add Job
         </button>
+      </div>
+      <div className='category-header'>
+        <p>{name}</p>
       </div>
       <div>
         <Card />

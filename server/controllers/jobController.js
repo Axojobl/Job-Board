@@ -34,7 +34,7 @@ jobController.getAllJobs = (req, res, next) => {
   db.query(query)
     .then((result) => {
       res.locals.getAllJobs = result.rows;
-      console.log(result);
+      
       return next();
     })
     .catch((err) => {

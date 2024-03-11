@@ -22,7 +22,10 @@ const App = () => {
   return (
     <div>
       <header>
-        <h1 className="head-title">Axojobl - Navigate Your Career Waters</h1>
+        <div class="title-container">
+          
+          <h1 className="head-title">Axojobl - Navigate Your Career Waters</h1>
+        </div>
       </header>
       <div className="app-container">
         <Board />

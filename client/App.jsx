@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div>
       <header>
-        <h1 className='head-title'>Axoljobl - Job Tracker For ECRI 46</h1>
+        <h1 className="head-title">Axoljobl - Job Tracker For ECRI 46</h1>
       </header>
       <div className="app-container">
         <Board />

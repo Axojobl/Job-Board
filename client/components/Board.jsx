@@ -9,7 +9,7 @@ import { addToStateActionCreator } from '../actions/actions.js';
 
 const Board = () => {
   const dispatch = useDispatch();
-  // const [data, setData] = useState([]);
+  const [catId, setCatId] = useState(0);
 
   useEffect(() => {
     async function fetchAll() {
@@ -36,29 +36,40 @@ const Board = () => {
   const categories = useSelector((state) => state.board.categories);
   console.log('categories in board.jsx: ', categories);
 
-  const categoryData = categories.map((name, index) => {
-    return <Category name={name} key={index} />;
+  const categoryData = categories.map((category, index) => {
+    return <Category name={category.category_name} id={category._id} key={index} />;
   });
 
   async function submitHandler(event) {
     event.preventDefault();
-    console.log(event.target[0].value);
-    await fetch('/api/category', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user_id: 1,
-        category_name: event.target[0].value,
-      }),
-    });
-    dispatch(addCategoryActionCreator(event.target[0].value));
+    // console.log(event.target[0].value);
+
+    try {
+      const response = await fetch('/api/category', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: 1,
+          category_name: event.target[0].value,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('New ID from db: ', data._id);
+        setCatId(data._id);
+        dispatch(addCategoryActionCreator(event.target[0].value, data._id));
+      }
+    } catch (error) {
+      console.error('Fail in submitHandler', error);
+    }
   }
 
   return (
     <div>
-      <h2>AxolBoard</h2>
+      <h3>AxoBoard</h3>
       <div className='category-input-container'>
         <div className='left-content'></div>
         <div className='right-content'>
@@ -72,5 +83,4 @@ const Board = () => {
     </div>
   );
 };
-// onClick={updateCardActionCreator} //saved for later, put back in button when read
 export default Board;

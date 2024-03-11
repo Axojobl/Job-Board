@@ -1,4 +1,4 @@
-const db = require("../models/jobModels");
+const db = require('../models/jobModels');
 
 const jobController = {};
 
@@ -17,9 +17,9 @@ jobController.getOneJob = (req, res, next) => {
     })
     .catch((err) => {
       return next({
-        log: "Error retrieving job from database",
+        log: 'Error retrieving job from database',
         status: 400,
-        message: { err: "An error occurred" },
+        message: { err: 'An error occurred' },
       });
     });
 };
@@ -34,55 +34,49 @@ jobController.getAllJobs = (req, res, next) => {
   db.query(query)
     .then((result) => {
       res.locals.getAllJobs = result.rows;
-      
+
       return next();
     })
     .catch((err) => {
       return next({
-        log: "Error retrieving jobs from database",
+        log: 'Error retrieving jobs from database',
         status: 400,
-        message: { err: "An error occurred" },
+        message: { err: 'An error occurred' },
       });
     });
 };
 
 jobController.createJob = (req, res, next) => {
   // destructure what we need from req.body
-  const {
-    job_role_name,
-    company_name,
-    details,
-    date_applied,
-    status,
-    order_number,
-    category_id,
-  } = req.body;
-
+  const { job_role_name, company_name, details, date_applied, category_id } =
+    req.body;
+  const status = 'status'
   // put destructured content into a params array to be passed into .query method
   const params = [
     job_role_name,
     company_name,
     details,
     date_applied,
-    status,
-    order_number,
     category_id,
+    status,
   ];
 
   const query = `
-    INSERT INTO listings (job_role_name, company_name, details, date_applied, status, order_number, category_id)
-    VALUES ($1, $2, $3, $4, $5, $6, $7)
+    INSERT INTO listings (job_role_name, company_name, details, date_applied, category_id, status)
+    VALUES ($1, $2, $3, $4, $5, $6)
   `;
 
+  console.log(query);
+  console.log(params);
   db.query(query, params)
     .then((result) => {
       return next();
     })
     .catch((err) => {
       return next({
-        log: "Error retrieving job from database",
+        log: 'Error retrieving job from database',
         status: 400,
-        message: { err: "An error occurred" },
+        message: { err: 'An error occurred' },
       });
     });
 };
@@ -108,7 +102,7 @@ jobController.updateJob = (req, res, next) => {
 
   const query = `
   UPDATE listings
-  SET ${setFields.join(", ")}
+  SET ${setFields.join(', ')}
   WHERE listing_id = '${id}'
   `;
   db.query(query)
@@ -117,9 +111,9 @@ jobController.updateJob = (req, res, next) => {
     })
     .catch((err) => {
       return next({
-        log: "Error retrieving job from database",
+        log: 'Error retrieving job from database',
         status: 400,
-        message: { err: "An error occurred" },
+        message: { err: 'An error occurred' },
       });
     });
 
@@ -140,9 +134,9 @@ jobController.deleteJob = (req, res, next) => {
     })
     .catch((err) => {
       return next({
-        log: "Error retrieving job from database",
+        log: 'Error retrieving job from database',
         status: 400,
-        message: { err: "An error occurred" },
+        message: { err: 'An error occurred' },
       });
     });
 };

@@ -25,9 +25,11 @@ const boardReducer = (state = initialState, action) => {
       const data = action.payload;
 
       const catSet = new Set([]);
-
       data.forEach((item) => {
-        catSet.add(item.category_name);
+        catSet.add({
+          _id: item.category_id,
+          category_name: item.category_name,
+        });
       });
 
       const catArray = Array.from(catSet);
@@ -41,11 +43,12 @@ const boardReducer = (state = initialState, action) => {
       break;
     case types.ADD_CATEGORY:
       //SQL query to add a category and then return the updated list of cateogries
-      const { categoryName } = action.payload; // RETURN from SQL query to populate
-      
+      // console.log('this is state before', state);
+      const { categoryName, _id } = action.payload; // RETURN from SQL query to populate
+      // console.log('In ADD_CATEGORY: name, id ', categoryName, _id);
       return {
         ...state,
-        categories: [...newCategories, categoryName],
+        categories: [...state.categories, { category_name: categoryName, _id }],
       };
       break;
     case types.DELETE_CATEGORY:

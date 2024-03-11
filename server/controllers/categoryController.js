@@ -50,12 +50,12 @@ categoryController.createCategory = (req, res, next) => {
   const query = `
         INSERT INTO categories (user_id, category_name)
         VALUES ($1, $2)
+        RETURNING (category_id)
     `;
 
-  console.log('query: ', query);
-  console.log('params: ', params);
   db.query(query, params)
     .then((result) => {
+      res.locals.category_id = result.rows[0].category_id
       return next();
     })
     .catch((err) => {

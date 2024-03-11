@@ -7,7 +7,6 @@ $third-color: rgb(19, 51, 158);
 $font-stack: 'Roboto', sans-serif;
 $background-color: rgb(171, 206, 203);
 
-// H1 is being weird THIS IS NOT applyin
 
 body {
   // font: $font-stack;
@@ -43,11 +42,9 @@ body {
     padding: 20px;
     color: $primary-color;
 
-    // Default grid setup for small screens
-    grid-template-columns: repeat(
-      2,
-      1fr
-    );
+    // Default
+    grid-template-columns: repeat(2,
+        1fr);
 
     @media (min-width: 769px) {
       grid-template-columns: repeat(3, 1fr); // Switches to 3 columns
@@ -84,8 +81,7 @@ body {
   flex-direction: row;
   width: 100%;
 
-  .left-content {
-  }
+  .left-content {}
 
   .right-content {
     width: 100%;
@@ -93,7 +89,6 @@ body {
     justify-content: flex-end;
     align-items: center;
 
-    button {
-    }
+    button {}
   }
 }

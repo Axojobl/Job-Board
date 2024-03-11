@@ -15,8 +15,6 @@ import { Provider } from 'react-redux';
 import App from './App.jsx';
 import store from './store';
 import './styles.scss';
-// * Testing for dndkit
-import DraggableCards from './draggableCards.jsx';
 
 // TODO: MongoDB to Authenticate Users
 // TODO: MongoDB for User Sign up
@@ -29,8 +27,6 @@ root.render(
   <Provider store={store}>
     <div className="App">
       <App />
-      {/* <h2>Draggable Cards</h2> */}
-      {/* <DraggableCards /> */}
     </div>
   </Provider>
 );

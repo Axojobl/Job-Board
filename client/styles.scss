@@ -1,28 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 // Variables
-$primary-color: rgb(140, 17, 145);
-$secondary-color: #efc3c3;
-$third-color: rgb(19, 51, 158);
-$font-stack: 'Roboto', sans-serif;
-$background-color: rgb(171, 206, 203);
-
+$primary-color: rgb(33, 37, 41);
+$secondary-color: #f8f9fa;
+$accent-color: #007bff;
+$third-color: rgb(45, 81, 198);
+$background-color: #f0f2f5;
 
 body {
   // font: $font-stack;
-  background-color: $background-color;
+  background-image: url('https://img.freepik.com/free-vector/white-abstract-wallpaper_23-2148830026.jpg');
+  background-size: cover; /* Ensures the background covers the entire page */
+  background-position: center center; /* Centers the background image on the page */
+  background-attachment: fixed; /* Prevents the background image from repeating */
   margin: 0;
   padding: 0;
   color: $primary-color;
-  font-family: $font-stack;
+  font-family: 'Work Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  //font-size: 16px;
+  line-height: 1.6;
   box-sizing: border-box;
 
   .head-title {
-    font-size: 50px;
-  }
-
-  h2 {
-    font-size: 40px;
+    color: $accent-color;
+    text-align: center;
   }
 
   .app-container {
@@ -40,11 +44,10 @@ body {
     gap: 15px;
     height: 50vh;
     padding: 20px;
-    color: $primary-color;
+    //color: $primary-color;
 
     // Default
-    grid-template-columns: repeat(2,
-        1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     @media (min-width: 769px) {
       grid-template-columns: repeat(3, 1fr); // Switches to 3 columns
@@ -62,16 +65,22 @@ body {
   .category {
     border-radius: 10px;
     padding: 10px;
-    background-color: $third-color;
-    grid-template-rows: reapeat(3, 1fr);
-    box-shadow: 10px 10px 5px 0px lighten($third-color, 40%);
+    background-color: $secondary-color;
+    grid-template-rows: repeat(3, 1fr);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     .card {
-      border: 1px solid;
+      border: 2px solid #007bff3b;
       border-radius: 10px;
       margin: 10px;
-      padding: 10px;
-      background-color: $secondary-color;
+      padding: 15px;
+      background: linear-gradient(145deg, #ffffff, #f0f2f5);
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow  0.3s ease;
+      &:hover {
+;        transform: translateY(-5px);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+      }
     }
   }
 }
@@ -79,9 +88,11 @@ body {
 .category-input-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
 
-  .left-content {}
+  .left-content {
+  }
 
   .right-content {
     width: 100%;
@@ -89,6 +100,18 @@ body {
     justify-content: flex-end;
     align-items: center;
 
-    button {}
+    button {
+      background-color: $accent-color;
+      color: white;
+      border: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      &:hover {
+        background-color: darken($accent-color, 10%);
+      }
+    }
   }
+}
+
+.category-header {
 }

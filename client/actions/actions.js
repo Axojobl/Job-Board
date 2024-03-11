@@ -13,6 +13,11 @@
 import { useDispatch } from 'react-redux';
 import * as types from '../constants/actionTypes';
 
+export const addToStateActionCreator = (data) => ({
+  type: types.ADD_TO_STATE,
+  payload: data,
+});
+
 // Add Card action creator
 export const addCardActionCreator = (cardId) => ({
   type: types.ADD_CARD,
@@ -30,17 +35,17 @@ export const updateCardActionCreator = (cardId) => ({
   payload: { cardId },
 });
 
-export const addCategoryActionCreator = (categoryId) => ({
+export const addCategoryActionCreator = (categoryName, _id) => ({
   type: types.ADD_CATEGORY,
-  payload: { catagoryId },
+  payload: { categoryName, _id},
 });
 
 export const deleteCategoryActionCreator = (categoryId) => ({
   type: types.DELETE_CATEGORY,
-  payload: { catagoryId },
+  payload: { categoryId },
 });
 
 export const updateCategoryActionCreator = (categoryId) => ({
   type: types.UPDATE_CATEGORY,
-  payload: { catagoryId },
+  payload: { categoryId },
 });

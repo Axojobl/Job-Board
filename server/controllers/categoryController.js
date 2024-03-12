@@ -4,6 +4,7 @@ const categoryController = {};
 
 categoryController.getOneCategory = (req, res, next) => {
   const { id } = req.params;
+  console.log('I am category id', id);
   const query = `
         SELECT *
         FROM categories

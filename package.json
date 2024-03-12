@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production nodemon server/server.js",
     "build": "webpack",
     "dev": "concurrently \"NODE_ENV=development nodemon server/server.js\" \"NODE_ENV=development webpack serve --open --hot\"",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "nodemonConfig": {
     "ignore": [
@@ -52,6 +52,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "nodemon": "^3.1.0",
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",

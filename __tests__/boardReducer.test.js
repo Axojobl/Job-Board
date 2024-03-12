@@ -10,6 +10,7 @@
 
 import subject from '../client/reducers/boardReducer';
 
+
 describe('Job-Board boardReducer', () => {
   let state; // Default state object
 
@@ -24,7 +25,7 @@ describe('Job-Board boardReducer', () => {
 
   describe('default state', () => {
     it('should return a default state when given undefined state', ()  => {
-      expect(subject(undefined, { type: undefined , payload: 'Test' }).toEqual(state));
+      expect(subject(undefined, { type: undefined , payload: 'Test' })).toEqual(state);
     })
   })
 

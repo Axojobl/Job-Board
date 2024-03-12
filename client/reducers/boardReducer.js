@@ -21,6 +21,16 @@ const boardReducer = (state = initialState, action) => {
   // let board;
 
   switch (action.type) {
+    /**
+     * 
+     * Initial page load in Board component that renders all categories and includes them in state
+     * Receives payload iterable (array?) of items
+     * Adds every item (consisting of ID/category name) to a set
+     * (premably this keeps each category unique? Might be better managed on the DB)
+     * Creates a new shallow copy array from that set
+     * Replaces the categories state value with the new array
+     * 
+     */
     case types.ADD_TO_STATE:
       const data = action.payload;
 
@@ -41,9 +51,14 @@ const boardReducer = (state = initialState, action) => {
       };
 
       break;
+
+    /**
+     * Adds a new card to state after interacting with the 'add category' form in Board component 
+     * Does not handle SQL query, instead allows React component to fetch
+     */
+
     case types.ADD_CATEGORY:
-      //SQL query to add a category and then return the updated list of cateogries
-      // console.log('this is state before', state);
+      
       const { categoryName, _id } = action.payload; // RETURN from SQL query to populate
       // console.log('In ADD_CATEGORY: name, id ', categoryName, _id);
       return {
@@ -51,8 +66,14 @@ const boardReducer = (state = initialState, action) => {
         categories: [...state.categories, { category_name: categoryName, _id }],
       };
       break;
+    
+    /**
+     * Deletes a category from state
+     * 
+     */
+    
     case types.DELETE_CATEGORY:
-      //SQL query to add a category and then return the updated list of cateogries
+      
       categories = 'PLACEHOLDER'; // RETURN from SQL query to populate
 
       return {
@@ -60,6 +81,13 @@ const boardReducer = (state = initialState, action) => {
         board: categories,
       };
       break;
+
+    /**
+     * 
+     * Updates a particular category in state
+     * 
+     */
+
     case types.UPDATE_CATEGORY:
       //SQL query to add a category and then return the updated list of cateogries
       categories = 'PLACEHOLDER'; // RETURN from SQL query to populate

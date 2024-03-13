@@ -25,7 +25,7 @@ const boardReducer = (state = initialState, action) => {
      * Initial page load in Board component that renders all categories and includes them in state
      * Receives payload iterable (array?) of items
      * Adds every item (consisting of ID/category name) to a set
-     * (premably this keeps each category unique? Might be better managed on the DB)
+     * Only includes category_name and _id, renaming properties
      * Creates a new shallow copy array from that set
      * Replaces the categories state value with the new array
      * 

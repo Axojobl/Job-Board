@@ -42,8 +42,8 @@ describe('Job-Board boardReducer', () => {
     const action = {
       type: 'ADD_TO_STATE',
       payload: [
-        { category_id: '65', category_name: 'Applied', user_id: '2' },
-        { category_id: '66', category_name: 'In Progress', user_id: '2' },
+        { category_id: 65, category_name: 'Applied', user_id: 2 },
+        { category_id: 66, category_name: 'In Progress', user_id: 2 },
       ],
     };
 
@@ -55,7 +55,6 @@ describe('Job-Board boardReducer', () => {
 
     it('new categories state should consist of an array of objects that have only two properties, _id, and category_name', () => {
       let result = subject(state, action).categories;
-      console.log('result is ', result);
       expect(Array.isArray(result)).toBe(true);
       expect(
         result.every(
@@ -66,20 +65,42 @@ describe('Job-Board boardReducer', () => {
         )
       ).toBe(true);
     });
+  });
 
   describe('ADD_CATEGORY', () => {
     // declare an add category action that has categoryName and _id
+    const testAdd = {
+      type: 'ADD_CATEGORY',
+      payload: { categoryName: 'New Category', _id: 65 },
+    };
 
-    xit('Should add a category', () => {
-      // Do test
+    it('Should add a category', () => {
+      expect(subject(state, testAdd).categories[0]).toEqual({
+        category_name: 'New Category',
+        _id: 65,
+      });
     });
 
-    xit('Should add a category inclusive of previous categories', () => {
-      // Do Test
+    it('Should add a category inclusive of previous categories', () => {
+      const testSecond = {
+        type: 'ADD_CATEGORY',
+        payload: { categoryName: 'Bonus category', _id: 69 },
+      };
+
+      let temp = subject(state, testAdd);
+      let final = subject(temp, testSecond);
+      expect(final.categories.length).toBe(2);
     });
 
-    xit('Final category should be equal to the action added', () => {
-      // Do Test
+    it('Final category should be equal to the action added', () => {
+      const testSecond = {
+        type: 'ADD_CATEGORY',
+        payload: { categoryName: 'Bonus category', _id: 69 },
+      };
+
+      let temp = subject(state, testAdd);
+      let final = subject(temp, testSecond);
+      expect(final.categories[1]).toEqual({category_name: 'Bonus category', _id: 69});
     });
   });
 });

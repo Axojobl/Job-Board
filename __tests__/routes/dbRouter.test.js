@@ -1,5 +1,14 @@
+/**
+ * ************************************
+ *
+ * @author Stephen Chow & Bongi Sibanda
+ * @date March 13, 2024
+ * @description Tests the select routes in dbRouter
+ *
+ * ************************************
+ */
+
 const request = require('supertest');
-// const server = 'http://localhost:3000';
 const dbRouter = require('../../server/routes/dbRouter');
 const express = require('express');
 const app = express()
@@ -115,15 +124,17 @@ describe('db Route', () => {
         })
         it('returns created category_id', async () => {
             const response = await request(app).post('/api/category').send({ user_id: "2", category_name: 'Waiting' });
-            console.log(response.body);
             expect(response.body._id).not.toBe(undefined);
         })
 
     })
     describe('update a category', () => {
-        it('returns a 200 status & returns updated category', async () => {
+        it('returns a 200 status', async () => {
             const response = await request(app).patch('/api/category/116').send({ user_id: "2", category_name: 'Waiting for response' });
             expect(response.status).toBe(200);
+        })
+        it('returns updated category', async () => {
+            const response = await request(app).patch('/api/category/116').send({ user_id: "2", category_name: 'Waiting for response' });
             expect(response.body.length).not.toBe(0);
         })
     })

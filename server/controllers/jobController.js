@@ -12,6 +12,7 @@ jobController.getOneJob = (req, res, next) => {
 
   db.query(query)
     .then((result) => {
+  
       res.locals.getOneJob = result.rows[0];
       return next();
     })
@@ -107,11 +108,12 @@ jobController.updateJob = (req, res, next) => {
   `;
   db.query(query)
     .then((result) => {
+
       return next();
     })
     .catch((err) => {
       return next({
-        log: 'Error retrieving job from database',
+        log: `Error retrieving job from database, ${err}`,
         status: 400,
         message: { err: 'An error occurred' },
       });

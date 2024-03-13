@@ -1,5 +1,5 @@
 const request = require('supertest');
-const server = 'http://localhost:3000';
+// const server = 'http://localhost:3000';
 const dbRouter = require('../../server/routes/dbRouter');
 const express = require('express');
 const app = express()
@@ -20,26 +20,25 @@ describe('db Route', () => {
         });
     });
 
-    // describe('get all jobs', () => {
-    //     it('returns a 200 status if correct id given', async () => {
-    //         const response = await request(server).get('/api/job');
-    //         expect(response.status).toBe(200);
-    //         expect(response.body.length).not.toBe(0);
-    //     })
-    //     it('return an array of objects', async () => {
-    //         const response = await request(server).get('/api/job');
-    //         expect(response.body.length).not.toBe(0);
-    //     })
-    // })
+    describe('get all jobs', () => {
+        it('returns a 200 status if correct id given', async () => {
+            const response = await request(app).get('/api/job');
+            expect(response.status).toBe(200);
+            expect(response.body.length).not.toBe(0);
+        })
+        it('return an array of objects', async () => {
+            const response = await request(app).get('/api/job');
+            expect(response.body.length).not.toBe(0);
+        })
+    })
 
-    // describe('create job', () => {
-    //     it('returns a 200 status if correct id given', async () => {
-    //         const response = await request(server).post('/api/job');
-    //         expect(response.status).toBe(200);
-    //     })
-    //     it('')
-    // })
-
+    describe('create job', () => {
+        it('returns a 200 status if correct id given', async () => {
+            const response = await request(app).post('/api/job');
+            expect(response.status).toBe(200);
+        })
+        // it('')
+    })
 
 
 

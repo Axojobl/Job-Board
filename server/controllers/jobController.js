@@ -90,6 +90,7 @@ jobController.updateJob = (req, res, next) => {
   // could be to update 1 field, could be to update 7 fields
 
   const fields = Object.entries(req.body);
+  console.log('i am fields', {fields});
 
   // setFields will be what we pass into SET field of SQL Update Query
   const setFields = [];
